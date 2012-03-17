@@ -19,17 +19,22 @@ When /^the command (.*) is executed on the vm as root$/ do |cmd|
   @mybox.sudo(cmd)
 end
 
-Then /^the local file (\w+\.*\w*) should exist$/ do |file|
+Then /^the local file (\S+) should exist$/ do |file|
   unless File.exist?(File.join(@mybox.cwd,file))
     raise "#{File.join(@mybox.cwd,file)} does not exist"
   end
 end
 
-Then /^the contents of motd\.second should be FOO$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^the contents of (\S+) should be (.*$)/ do |file,expected_contents|
+  found_content=File.read(File.join(@mybox.cwd,file))
+  unless found_content == found_content
+    raise "In file #{file}, expected #{expected_content}, found #{found_content}"
+  end
 end
 
-Then /^the files motd\.first and motd\.second should be the same$/ do
-  pending # express the regexp above with the code you wish you had
+Then /^the files (\S+) and (\S+) should be the same$/ do |file1, file2|
+  unless File.read(File.join(@mybox.cwd,file1)) == File.read(File.join(@mybox.cwd,file2))
+    raise "#{file1} and #{file2} differ"
+  end
 end
 
