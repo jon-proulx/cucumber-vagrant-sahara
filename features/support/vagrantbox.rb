@@ -3,7 +3,6 @@ require 'vagrant'
 require 'sahara'
 
 class VagrantBox
-  attr_reader :cwd
   def initialize(basebox)
     #brittle code...
     @name=basebox
@@ -44,4 +43,7 @@ end                                                                            "
     @env.primary_vm.channel.sudo(cmd)
   end
 
+  def join_cwd(file)
+    File.join(@cwd,file)
+  end
 end
