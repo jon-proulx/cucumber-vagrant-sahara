@@ -17,5 +17,5 @@ Scenario: change motd
 	  Then the contents of motd.second should be FOO
 
 Scenario: access motd after change
-          When the command cp /etc/motd /vagrant/motd.second is executed on the vm 
-	  Then the files motd.first and motd.second should be the same 
+          When the command cp /etc/motd /vagrant/motd.third is executed on the vm 
+	  Then the files motd.first and motd.third should be the same 
