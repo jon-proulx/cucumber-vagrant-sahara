@@ -22,11 +22,11 @@ end                                                                            "
     if @env.primary_vm.state != :running
       print "Booting #{@name} patience..."
       @env.cli("up")
-      puts "frezzing mv state..."
-      self.freeze
-      puts "done"
     end
     raise "Failed to start vm #{@name} " if @env.primary_vm.state != :running
+    puts "freezing mv state..."
+    self.freeze
+    puts "done"
   end
   
   def freeze
