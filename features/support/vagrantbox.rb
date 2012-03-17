@@ -3,7 +3,7 @@ require 'vagrant'
 require 'sahara'
 
 class VagrantBox
-  attr_reader :env, :cwd
+  attr_reader :cwd
   def initialize(basebox)
     #brittle code...
     @name=basebox
@@ -35,4 +35,9 @@ end                                                                            "
   def rollback
     @env.cli("sandbox","rollback")
   end
+
+  def execute(cmd)
+    @env.primary_vm.channel.execute(cmd)
+  end
+
 end

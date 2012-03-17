@@ -4,15 +4,15 @@ Given /^a vagrant vm (\w+) (?:is running|is up|)$/ do |box|
 end
 
 Given /^I freeze the vm$/ do
-  @mybox.env.cli("sandbox","on")
+  @mybox.freeze
 end
 
 Given /^I rollback the vm$/ do
-  @mybox.env.cli("sandbox","rollback")
+  @mybox.rollback
 end
 
 When /^the command (.*) is executed on the vm$/ do |cmd|
-  @mybox.env.primary_vm.channel.execute(cmd)
+  @mybox.execute(cmd)
 end
 
 Then /^the local file (\w+\.*\w*) should exist$/ do |file|
