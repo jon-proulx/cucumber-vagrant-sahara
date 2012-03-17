@@ -1,15 +1,11 @@
 Feature: Booting
 
 I want to cold boot a development VM
-freeze state
-run Scenario
-revert state
-loop
-shutdown develoment VM
+I want changes cause be each scenario to be isolated
+(currently constuctor to freeze before and After hook roll back)
 
-Background:
+Background: have a running system
 	  Given a vagrant vm puppetsqueeze64 is running
-	  And the vm is frozen
 
 Scenario: access motd
 	  When the command cp /etc/motd /vagrant/motd.first is executed on the vm
@@ -21,6 +17,5 @@ Scenario: change motd
 	  Then the contents of motd.second should be FOO
 
 Scenario: access motd after change
-	  Given I rollback the vm                                   
           When the command cp /etc/motd /vagrant/motd.second is executed on the vm 
 	  Then the files motd.first and motd.second should be the same 

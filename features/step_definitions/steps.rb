@@ -1,3 +1,7 @@
+After do
+  @mybox.rollback
+end
+
 Given /^a vagrant vm (\w+) (?:is running|is up|)$/ do |box|
   @mybox=VagrantBox.new(box)
   @mybox.up
