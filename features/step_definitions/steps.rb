@@ -3,7 +3,7 @@ Given /^a vagrant vm (\w+) (?:is running|is up|)$/ do |box|
   @mybox.up
 end
 
-Given /^I freeze the vm$/ do
+Given /^(?:I freeze the vm|the vm is frozen)$/ do
   @mybox.freeze
 end
 
