@@ -15,7 +15,7 @@ Scenario: access motd
 Scenario: change motd
   	  Given a vagrant vm puppetsqueeze64 is running
 	  And I freeze the vm
-	  When the vm executes echo FOO > /etc/motd
+	  When the command echo FOO > /etc/motd is executed on the vm
 	  And the command cp /etc/motd /vagrant/motd.second is executed on the vm
 	  Then the contents of motd.second should be FOO
 

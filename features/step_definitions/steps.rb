@@ -21,14 +21,6 @@ Then /^the local file (\w+\.*\w*) should exist$/ do |file|
   end
 end
 
-When /^the vm executes echo FOO > \/etc\/motd$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-When /^the command cp \/etc\/motd \/vagrant\/motd\.second is executed on the vm$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
 Then /^the contents of motd\.second should be FOO$/ do
   pending # express the regexp above with the code you wish you had
 end
