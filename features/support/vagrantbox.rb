@@ -40,4 +40,8 @@ end                                                                            "
     @env.primary_vm.channel.execute(cmd)
   end
 
+  def sudo(cmd)
+    @env.primary_vm.channel.sudo(cmd)
+  end
+
 end

@@ -15,6 +15,10 @@ When /^the command (.*) is executed on the vm$/ do |cmd|
   @mybox.execute(cmd)
 end
 
+When /^the command (.*) is executed on the vm as root$/ do |cmd|
+  @mybox.sudo(cmd)
+end
+
 Then /^the local file (\w+\.*\w*) should exist$/ do |file|
   unless File.exist?(File.join(@mybox.cwd,file))
     raise "#{File.join(@mybox.cwd,file)} does not exist"
