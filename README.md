@@ -1,4 +1,4 @@
-==Test integration of Cucumber and Vagrant + Sahara
+##Test integration of Cucumber and Vagrant + Sahara
 
 [Cucumber](http://cukes.info) is a behaviour specification 
 and testing language 
@@ -16,7 +16,7 @@ development of [Puppet](http://www.puppetlabs.com) and
 [Chef](http://www.opscode.com) configuration management
 modules/cookbooks, but for now this is just me trying to sort it out
 
-==Caveats
+##Caveats
 
 This is all highly specific to my world right now, it may (or many
 not) be useful as an example, but it is unlikely to actually run
