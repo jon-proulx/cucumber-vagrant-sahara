@@ -29,14 +29,21 @@ end                                                                            "
     puts "done"
   end
   
+########################################################################
+##Sahara sandbox features don't work from method calls
+##The seem to think the environment isn't running
+##but the work from the shell (sahara doesn't claim
+##support for 1.0 vagrant only ~>0.9, I'm forcing it) 
   def freeze
-    @env.cli("sandbox","on") 
+    #@env.cli("sandbox","on") 
+    `cd #{@cwd} ; /var/lib/gems/1.8/bin/vagrant sandbox on`
   end
 
   def rollback
-    @env.cli("sandbox","rollback")
+    #@env.cli("sandbox","rollback")
+    `cd #{@cwd} ; /var/lib/gems/1.8/bin/vagrant sandbox rollback`
   end
-
+########################################################################
   def execute(cmd)
     @env.primary_vm.channel.execute(cmd)
   end
