@@ -1,7 +1,7 @@
 Feature: Rollback
 
 I want to cold boot a development VM
-I want changes cause be each scenario to be isolated
+I want changes caused by each scenario to be isolated
 (currently constuctor to freeze before and After hook roll back)
 
 Background: have a running system
