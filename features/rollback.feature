@@ -1,4 +1,4 @@
-Feature: Booting
+Feature: Rollback
 
 I want to cold boot a development VM
 I want changes cause be each scenario to be isolated
@@ -10,11 +10,12 @@ Background: have a running system
 Scenario: access motd
 	  When the command cp /etc/motd /vagrant/motd.first is executed on the vm
 	  Then the local file motd.first should exist
+	  And the local file motd.first should not contain "FOO"
 
 Scenario: change motd
 	  When the command echo FOO > /etc/motd is executed on the vm as root
 	  And the command cp /etc/motd /vagrant/motd.second is executed on the vm
-	  Then the contents of motd.second should be FOO
+	  Then the local file motd.second should contain "FOO"
 
 Scenario: access motd after change
           When the command cp /etc/motd /vagrant/motd.third is executed on the vm 

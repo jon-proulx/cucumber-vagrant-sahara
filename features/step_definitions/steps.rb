@@ -42,3 +42,16 @@ Then /^the files (\S+) and (\S+) should be the same$/ do |file1, file2|
   end
 end
 
+#this one is starting to feel a bit stretched
+Then /^the local file (\S+) (should|should not) contain "([^"]*)"$/ do |file,sense,substring| #"
+  if sense == "should"
+    unless File.read(@mybox.join_cwd(file)).include?(substring)
+      raise "#{file1} does not contain: #{substring}"
+    end
+  else
+    if File.read(@mybox.join_cwd(file)).include?(substring)
+    raise "#{file1} should not not contain: #{substring}"
+      end
+  end
+end
+
