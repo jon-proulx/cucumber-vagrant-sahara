@@ -1,28 +1,3 @@
-After do
-  @mybox.rollback
-end
-
-Given /^a vagrant vm (\w+) (?:is running|is up|)$/ do |box|
-  @mybox=VagrantBox.new(box)
-  @mybox.up
-end
-
-Given /^(?:I freeze the vm|the vm is frozen)$/ do
-  @mybox.freeze
-end
-
-Given /^I rollback the vm$/ do
-  @mybox.rollback
-end
-
-When /^the command (.*) is executed on the vm$/ do |cmd|
-  @mybox.execute(cmd)
-end
-
-When /^the command (.*) is executed on the vm as root$/ do |cmd|
-  @mybox.sudo(cmd)
-end
-
 Then /^the local file (\S+) should exist$/ do |file|
   unless File.exist?(@mybox.join_cwd(file))
     raise "#{@mybox.join_cwd(file)} does not exist"
@@ -54,4 +29,3 @@ Then /^the local file (\S+) (should|should not) contain "([^"]*)"$/ do |file,sen
       end
   end
 end
-
