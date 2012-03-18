@@ -4,7 +4,7 @@
 and testing language 
 
 [Vagrant](http://vagrant-up.org) is a tool for building and 
-distributing [VirtualBox](http://www.virtualbox.org)virtualized 
+distributing [VirtualBox](http://www.virtualbox.org) virtualized 
 development environments
 
 [Sahara](https://github.com/jedi4ever/sahara) is a plugin for managing
